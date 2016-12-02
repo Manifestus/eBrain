@@ -56,20 +56,49 @@ public class Constelacion {
     public Constelacion First(Constelacion V){
         return V.getAdyacencia().getCosntelacion();
     }
-    public Constelacion Next(Constelacion v,int i){
-        Constelacion recorre=v.getAdyacencia().getCosntelacion();
-        int cont=0;
+    public Estrella Next(Constelacion v,int i){
+        Estrella Estrella = v.getEstrellas();
         if (i==0) {  
-            return recorre;
-        }else{
-            for (int j = 0; j < i; j++) {
-                //v=
-                //if()
+            if (Estrella.getNext().equals(null) == false) {
+                return null;
+            }else{
+                return Estrella.getNext();
             }
-        }           
+        }else{
+            try {
+                for (int j = 0; j < i + 1; j++) {
+                    if (Estrella.getNext().equals(null)) {
+                    } else {
+                    Estrella = Estrella.getNext();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("No existe posicion a buscar");
+            }
+        } 
+        return Estrella;
     }
-    public Constelacion getVertex(Constelacion c,int i){
-        return new Constelacion();
+    public Estrella getVertex(Constelacion Vertex,int i){
+        Estrella Estrella = Vertex.getEstrellas();
+        if (i==0) {  
+            if (Estrella.getNext().equals(null) == false) {
+                return null;
+            }else{
+                return Estrella.getNext();
+            }
+        }else{
+            try {
+                for (int j = 0; j < i; j++) {
+                    if (Estrella.getNext().equals(null)) {
+                    } else {
+                    Estrella = Estrella.getNext();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("No existe posicion a buscar");
+            }
+        } 
+        return Estrella;
     }
     public void Add(Constelacion v,Constelacion w){
         

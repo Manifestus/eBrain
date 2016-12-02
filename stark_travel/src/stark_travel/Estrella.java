@@ -61,29 +61,5 @@ public class Estrella {
     public String toString() {
         return Nombre;
     }
-    public Estrella First(Estrella V){
-        return new Estrella();
-    }
-    public Estrella Next(Estrella v,int i){
-        //Constelacion recorre=v.getAdyacencia().getCosntelacion();
-        int cont=0;
-        if (i==0) {  
-            return recorre;
-        }else{
-            for (int j = 0; j < i; j++) {
-                //v=
-                //if()
-            }
-        }           
-    }
-    public Constelacion getVertex(Constelacion c,int i){
-        return new Constelacion();
-    }
-    public void Add(Constelacion v,Constelacion w){
-        
-    }
-    public void Remove(Constelacion v,Constelacion w){
-        
-    }
     
 }
