@@ -15,11 +15,13 @@ public class Constelacion {
 
     private String Nombre;
     private Estrella Estrellas;
-    private Constelacion next;
     private Adyacencia adyacencia;
 
     public Constelacion(String Nombre) {
         this.Nombre = Nombre;
+    }
+
+    public Constelacion() {
     }
 
     public String getNombre() {
@@ -38,14 +40,6 @@ public class Constelacion {
         this.Estrellas = Estrellas;
     }
 
-    public Constelacion getNext() {
-        return next;
-    }
-
-    public void setNext(Constelacion next) {
-        this.next = next;
-    }
-
     public Adyacencia getAdyacencia() {
         return adyacencia;
     }
@@ -58,5 +52,29 @@ public class Constelacion {
     public String toString() {
         return  Nombre;
     }
-
+    
+    public Constelacion First(Constelacion V){
+        return V.getAdyacencia().getCosntelacion();
+    }
+    public Constelacion Next(Constelacion v,int i){
+        Constelacion recorre=v.getAdyacencia().getCosntelacion();
+        int cont=0;
+        if (i==0) {  
+            return recorre;
+        }else{
+            for (int j = 0; j < i; j++) {
+                //v=
+                //if()
+            }
+        }           
+    }
+    public Constelacion getVertex(Constelacion c,int i){
+        return new Constelacion();
+    }
+    public void Add(Constelacion v,Constelacion w){
+        
+    }
+    public void Remove(Constelacion v,Constelacion w){
+        
+    }
 }
