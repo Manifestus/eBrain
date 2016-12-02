@@ -14,11 +14,10 @@ import java.util.ArrayList;
 public class Estrella {
 
     private String Nombre;
-    private ArrayList<Adyacencia> Adj;
+    private Adyacencia next;
 
-    public Estrella(String Nombre, ArrayList<Adyacencia> Adj) {
+    public Estrella(String Nombre) {
         this.Nombre = Nombre;
-        this.Adj = Adj;
     }
 
     public String getNombre() {
@@ -29,16 +28,17 @@ public class Estrella {
         this.Nombre = Nombre;
     }
 
-    public ArrayList<Adyacencia> getAdj() {
-        return Adj;
+    public Adyacencia getNext() {
+        return next;
     }
 
-    public void setAdj(ArrayList<Adyacencia> Adj) {
-        this.Adj = Adj;
+    public void setNext(Adyacencia next) {
+        this.next = next;
     }
 
     @Override
     public String toString() {
-        return "Estrella{" + "Nombre=" + Nombre + ", Adj=" + Adj + '}';
+        return Nombre;
     }
+    
 }

@@ -14,13 +14,12 @@ import java.util.ArrayList;
 public class Constelacion {
 
     private String Nombre;
-    private ArrayList<Estrella> Estrellas;
-    private ArrayList<Adyacencia> Adj;
+    private Estrella Estrellas;
+    private Constelacion next;
+    private Adyacencia adyacencia;
 
-    public Constelacion(String Nombre, ArrayList<Estrella> Estrellas, ArrayList<Adyacencia> Adj) {
+    public Constelacion(String Nombre) {
         this.Nombre = Nombre;
-        this.Estrellas = Estrellas;
-        this.Adj = Adj;
     }
 
     public String getNombre() {
@@ -31,25 +30,33 @@ public class Constelacion {
         this.Nombre = Nombre;
     }
 
-    public ArrayList<Estrella> getEstrellas() {
+    public Estrella getEstrellas() {
         return Estrellas;
     }
 
-    public void setEstrellas(ArrayList<Estrella> Estrellas) {
+    public void setEstrellas(Estrella Estrellas) {
         this.Estrellas = Estrellas;
     }
 
-    public ArrayList<Adyacencia> getAdj() {
-        return Adj;
+    public Constelacion getNext() {
+        return next;
     }
 
-    public void setAdj(ArrayList<Adyacencia> Adj) {
-        this.Adj = Adj;
+    public void setNext(Constelacion next) {
+        this.next = next;
     }
+
+    public Adyacencia getAdyacencia() {
+        return adyacencia;
+    }
+
+    public void setAdyacencia(Adyacencia adyacencia) {
+        this.adyacencia = adyacencia;
+    } 
 
     @Override
     public String toString() {
-        return "Constelacion{" + "Nombre=" + Nombre + ", Estrellas=" + Estrellas + ", Adj=" + Adj + '}';
+        return  Nombre;
     }
 
 }

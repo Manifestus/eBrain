@@ -10,6 +10,7 @@ package stark_travel;
  * @author Romero
  */
 public class Adyacencia {
+    private Adyacencia next;
     private Constelacion cosntelacion;
     private Estrella estrella;
     private int peso;
