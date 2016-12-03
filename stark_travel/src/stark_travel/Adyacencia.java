@@ -13,6 +13,7 @@ public class Adyacencia {
     private Adyacencia next;
     private Constelacion cosntelacion;
     private Estrella estrella;
+    private Estrella origen;
     private int peso;
 
     public Adyacencia(Constelacion cosntelacion, int peso) {
@@ -28,6 +29,22 @@ public class Adyacencia {
     public Adyacencia() {
     }
 
+    public Adyacencia getNext() {
+        return next;
+    }
+
+    public void setNext(Adyacencia next) {
+        this.next = next;
+    }
+
+    public Estrella getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(Estrella origen) {
+        this.origen = origen;
+    }
+    
     public Constelacion getCosntelacion() {
         return cosntelacion;
     }

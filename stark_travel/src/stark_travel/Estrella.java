@@ -17,12 +17,21 @@ public class Estrella {
     private String Name_Const;
     private Adyacencia Adj;
     private Estrella Next;
+    private boolean Visitado;
 
     public Estrella(String Nombre) {
         this.Nombre = Nombre;
     }
 
     public Estrella() {
+    }
+
+    public boolean isVisitado() {
+        return Visitado;
+    }
+
+    public void setVisitado(boolean Visitado) {
+        this.Visitado = Visitado;
     }
     
     public String getName_Const() {

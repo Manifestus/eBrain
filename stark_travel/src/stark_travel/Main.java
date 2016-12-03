@@ -80,4 +80,102 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+public Estrella kruskal(Estrella grafo){
+    Estrella temp=lista;
+    Estrella temp_2=new Estrella();
+    int size=1;
+    boolean revision=true;
+    while(revision){
+        if(!lista.getNext().equals(null)){
+            size++;
+            temp=temp.getNext();
+        }else{
+            revision=false;
+        }
+    }
+    temp=lista;
+    Estrella temp_3=new Estrella();
+    for (int i = 0; i < size; i++) {
+        if(grafo.getNombre().equals(temp.getNombre())){
+            temp.setVisitado(true);
+        }
+        if(i==0){
+            temp_2=temp;
+        }else{
+            temp_3.setNext(temp);
+        }
+        temp_3=temp;
+        temp=temp.getNext(); 
+    }
+    temp=temp_2;
+    boolean recorriendo=true;
+    while(recorriendo){
+        Adyacencia opciones=new Adyacencia();
+        Adyacencia opciones_final=new Adyacencia();
+        for (int i = 0; i < size; i++) {
+            if(temp.isVisitado()){
+                boolean agregar=true;
+                while(agregar){
+                    if (opciones.equals(null)) {
+                        opciones=temp.getAdj();
+                        Adyacencia mas_op=opciones;
+                        while(!mas_op.getNext().equals(null)){
+                            mas_op=mas_op.getNext();
+                        }
+                        opciones_final=mas_op;
+                    }else{
+                        opciones_final.setNext(temp.getAdj());
+                        Adyacencia mas_op=opciones_final;
+                        while(!mas_op.getNext().equals(null)){
+                            mas_op=mas_op.getNext();
+                        }
+                        opciones_final=mas_op;
+                    }
+                } 
+            }
+            temp=temp.getNext();
+        }
+        boolean verificar=true;
+        Adyacencia menor=new Adyacencia();
+        Adyacencia menor_final=new Adyacencia();
+        menor.setPeso(-9);
+        while(!opciones.getNext().equals(null)){
+            if (opciones.getPeso()<menor.getPeso()&&menor.getOrigen().isVisitado()==false){
+                if (menor.getPeso()==-9) {
+                    Adyacencia nueva=opciones;
+                    menor=nueva;
+                    menor_final=nueva;
+                    menor.setNext(null);
+                }else{
+                    Adyacencia nueva=opciones;
+                    menor_final.setNext(nueva);
+                    menor_final=nueva;
+                    menor_final.setNext(null);
+                }
+               
+            }
+            opciones=opciones.getNext();
+        }
+        temp=temp_2;
+        while(!menor.equals(null)){
+            boolean si=true;
+            while(!temp.equals(null)){
+                if (temp.getNombre().equals(menor.getOrigen().getNombre())) {
+                    Adyacencia nueva=new Adyacencia(menor.getEstrella(),menor.getPeso());
+                    nueva.setOrigen(menor.getOrigen());
+                    temp.setVisitado(true);
+                    temp.setAdj(nueva);
+                    
+                }
+                temp=temp.getNext();
+            }
+            menor=menor.getNext();
+        }
+        
+    }
+    
+    return temp;
+}
+Estrella lista;
+Estrella lista_fin;
 }
