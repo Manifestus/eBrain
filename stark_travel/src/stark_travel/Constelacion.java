@@ -46,64 +46,121 @@ public class Constelacion {
 
     public void setAdyacencia(Adyacencia adyacencia) {
         this.adyacencia = adyacencia;
-    } 
+    }
 
     @Override
     public String toString() {
-        return  Nombre;
+        return Nombre;
     }
-    
-    public Constelacion First(Constelacion V){
+
+    public Constelacion First(Constelacion V) {
         return V.getAdyacencia().getCosntelacion();
     }
-    public Estrella Next(Constelacion v,int i){
+
+    public Estrella Next(Constelacion v, int i) {
         Estrella Estrella = v.getEstrellas();
-        if (i==0) {  
+        if (i == 0) {
             if (Estrella.getNext().equals(null) == false) {
                 return null;
-            }else{
+            } else {
                 return Estrella.getNext();
             }
-        }else{
+        } else {
             try {
                 for (int j = 0; j < i + 1; j++) {
                     if (Estrella.getNext().equals(null)) {
                     } else {
-                    Estrella = Estrella.getNext();
+                        Estrella = Estrella.getNext();
                     }
                 }
             } catch (Exception e) {
                 System.out.println("No existe posicion a buscar");
             }
-        } 
+        }
         return Estrella;
     }
-    public Estrella getVertex(Constelacion Vertex,int i){
+
+    public Estrella getVertex(Constelacion Vertex, int i) {
         Estrella Estrella = Vertex.getEstrellas();
-        if (i==0) {  
+        if (i == 0) {
             if (Estrella.getNext().equals(null) == false) {
                 return null;
-            }else{
+            } else {
                 return Estrella.getNext();
             }
-        }else{
+        } else {
             try {
                 for (int j = 0; j < i; j++) {
                     if (Estrella.getNext().equals(null)) {
                     } else {
-                    Estrella = Estrella.getNext();
+                        Estrella = Estrella.getNext();
                     }
                 }
             } catch (Exception e) {
                 System.out.println("No existe posicion a buscar");
             }
-        } 
+        }
         return Estrella;
     }
-    public void Add(Constelacion v,Constelacion w){
-        
+
+    public void Add(Estrella Inicio, Estrella Final) {
+        int contador = 0;
+        while (!Inicio.getNext().equals(null)) {
+            contador++;
+            Inicio = Inicio.getNext();
+        }
+        if (contador == 0) {
+            Inicio.setNext(Final);
+        } else {
+            try {
+                for (int j = 0; j < contador; j++) {
+                    if (Inicio.getNext().equals(null)) {
+                    } else {
+                        Inicio = Inicio.getNext();
+                    }
+                }
+                Inicio.setNext(Final);
+            } catch (Exception e) {
+            }
+        }
     }
-    public void Remove(Constelacion v,Constelacion w){
-        
+
+    public void Remove(Estrella Inicio, int pos) {
+        int contador = 0;
+        while (!Inicio.getNext().equals(null)) {
+            contador++;
+            Inicio = Inicio.getNext();
+        }
+        if (contador == 0) {
+            Inicio = null;
+        } else {
+            try {
+                for (int j = 0; j < pos; j++) {
+                    if (Inicio.getNext().equals(null)) {
+                    } else {
+                        Inicio = Inicio.getNext();
+                    }
+                }
+                if (!Inicio.getNext().equals(null)) {
+                    Inicio = Inicio.getNext();
+                } else {
+
+                }
+            } catch (Exception e) {
+            }
+        }
     }
+
+    public int Size() {
+        int contador = 0;
+        Estrella temp = Estrellas;
+        while (!temp.equals(null)) {
+            if (temp.getName_Const().equals(this.Nombre)) {
+                contador++;
+            }
+            temp = temp.getNext();
+        }
+        return contador;
+    }
+
 }
