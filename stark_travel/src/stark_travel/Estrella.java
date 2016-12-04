@@ -19,8 +19,9 @@ public class Estrella {
     private Estrella Next;
     private boolean Visitado;
 
-    public Estrella(String Nombre) {
+    public Estrella(String Nombre, boolean Visitado) {
         this.Nombre = Nombre;
+        this.Visitado = Visitado;
     }
 
     public Estrella() {
@@ -66,9 +67,15 @@ public class Estrella {
         this.Nombre = Nombre;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return Nombre;
+    }*/
+
+    @Override
+    public String toString() {
+        return Nombre + "(" + Adj + "),"+Next;
     }
+    
     
 }

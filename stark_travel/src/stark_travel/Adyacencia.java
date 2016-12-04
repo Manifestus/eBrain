@@ -14,6 +14,7 @@ public class Adyacencia {
     private Constelacion cosntelacion;
     private Estrella estrella;
     private Estrella origen;
+    private boolean camino_kruskal;
     private int peso;
 
     public Adyacencia(Constelacion cosntelacion, int peso) {
@@ -21,12 +22,22 @@ public class Adyacencia {
         this.peso = peso;
     }
 
-    public Adyacencia(Estrella estrella, int peso) {
+    public Adyacencia(Estrella estrella, Estrella origen, boolean camino_kruskal, int peso) {
         this.estrella = estrella;
+        this.origen = origen;
+        this.camino_kruskal = camino_kruskal;
         this.peso = peso;
     }
 
     public Adyacencia() {
+    }
+
+    public boolean isCamino_kruskal() {
+        return camino_kruskal;
+    }
+
+    public void setCamino_kruskal(boolean camino_kruskal) {
+        this.camino_kruskal = camino_kruskal;
     }
 
     public Adyacencia getNext() {
@@ -71,8 +82,13 @@ public class Adyacencia {
 
     @Override
     public String toString() {
-        return "Adyacencia{" + "cosntelacion=" + cosntelacion + ", estrella=" + estrella + ", peso=" + peso + '}';
+        if (next.equals(null)) {
+            return  "("+origen+"-"+peso+"->"+estrella+")";
+        }else
+        return  "("+origen+"-"+peso+"->"+estrella+"),"+next;
     }
+
+    
     
     
 }
