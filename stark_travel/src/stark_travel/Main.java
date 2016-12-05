@@ -19,55 +19,55 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        Estrella e1=new Estrella("e1",false);
-        Estrella e2=new Estrella("e2",false);
-        Estrella e3=new Estrella("e3",false);
-        Estrella e4=new Estrella("e4",false);
-        Estrella e5=new Estrella("e5",false);
-        Estrella e6=new Estrella("e6",false);
-        Estrella e7=new Estrella("e7",false);
-        Adyacencia x11=new Adyacencia(e2,e1,false,1);
-        Adyacencia x12=new Adyacencia(e4,e1,false,4);
-        Adyacencia x13=new Adyacencia(e6,e1,false,5);
-        Adyacencia x14=new Adyacencia(e5,e1,false,6);
-        Adyacencia x15=new Adyacencia(e3,e1,false,3);
+        Estrella e1 = new Estrella("e1", false);
+        Estrella e2 = new Estrella("e2", false);
+        Estrella e3 = new Estrella("e3", false);
+        Estrella e4 = new Estrella("e4", false);
+        Estrella e5 = new Estrella("e5", false);
+        Estrella e6 = new Estrella("e6", false);
+        Estrella e7 = new Estrella("e7", false);
+        Adyacencia x11 = new Adyacencia(e2, e1, false, 1);
+        Adyacencia x12 = new Adyacencia(e4, e1, false, 4);
+        Adyacencia x13 = new Adyacencia(e6, e1, false, 5);
+        Adyacencia x14 = new Adyacencia(e5, e1, false, 6);
+        Adyacencia x15 = new Adyacencia(e3, e1, false, 3);
         x14.setNext(x15);
         x13.setNext(x14);
         x12.setNext(x13);
         x11.setNext(x12);
         e1.setAdj(x11);
-        Adyacencia x61=new Adyacencia(e4,e6,false,9);
-        Adyacencia x62=new Adyacencia(e1,e6,false,5);
-        Adyacencia x63=new Adyacencia(e5,e6,false,8);
-        Adyacencia x64=new Adyacencia(e7,e6,false,10);
+        Adyacencia x61 = new Adyacencia(e4, e6, false, 9);
+        Adyacencia x62 = new Adyacencia(e1, e6, false, 5);
+        Adyacencia x63 = new Adyacencia(e5, e6, false, 8);
+        Adyacencia x64 = new Adyacencia(e7, e6, false, 10);
         x63.setNext(x64);
         x62.setNext(x63);
         x61.setNext(x62);
         e6.setAdj(x61);
-        Adyacencia x51=new Adyacencia(e7,e5,false,11);
-        Adyacencia x52=new Adyacencia(e6,e5,false,8);
-        Adyacencia x53=new Adyacencia(e1,e5,false,6);
-        Adyacencia x54=new Adyacencia(e3,e5,false,7);
+        Adyacencia x51 = new Adyacencia(e7, e5, false, 11);
+        Adyacencia x52 = new Adyacencia(e6, e5, false, 8);
+        Adyacencia x53 = new Adyacencia(e1, e5, false, 6);
+        Adyacencia x54 = new Adyacencia(e3, e5, false, 7);
         x53.setNext(x54);
         x52.setNext(x53);
         x51.setNext(x52);
         e5.setAdj(x51);
-        Adyacencia x41=new Adyacencia(e2,e4,false,2);
-        Adyacencia x42=new Adyacencia(e1,e4,false,4);
-        Adyacencia x43=new Adyacencia(e6,e4,false,9);
+        Adyacencia x41 = new Adyacencia(e2, e4, false, 2);
+        Adyacencia x42 = new Adyacencia(e1, e4, false, 4);
+        Adyacencia x43 = new Adyacencia(e6, e4, false, 9);
         x42.setNext(x43);
         x41.setNext(x42);
         e4.setAdj(x41);
-        Adyacencia x21=new Adyacencia(e4,e2,false,2);
-        Adyacencia x22=new Adyacencia(e1,e2,false,1);
+        Adyacencia x21 = new Adyacencia(e4, e2, false, 2);
+        Adyacencia x22 = new Adyacencia(e1, e2, false, 1);
         x21.setNext(x22);
         e2.setAdj(x21);
-        Adyacencia x71=new Adyacencia(e6,e7,false,10);
-        Adyacencia x72=new Adyacencia(e5,e7,false,11);
+        Adyacencia x71 = new Adyacencia(e6, e7, false, 10);
+        Adyacencia x72 = new Adyacencia(e5, e7, false, 11);
         x71.setNext(x72);
         e7.setAdj(x71);
-        Adyacencia x31=new Adyacencia(e1,e3,false,3);
-        Adyacencia x32=new Adyacencia(e5,e3,false,7);
+        Adyacencia x31 = new Adyacencia(e1, e3, false, 3);
+        Adyacencia x32 = new Adyacencia(e5, e3, false, 7);
         x31.setNext(x32);
         e3.setAdj(x31);
         e6.setNext(e7);
@@ -76,10 +76,10 @@ public class Main extends javax.swing.JFrame {
         e3.setNext(e4);
         e2.setNext(e3);
         e1.setNext(e2);
-        lista=e1;
-        lista_fin=e7;
-        Estrella kkl=kruskal(e1);
-        DefaultComboBoxModel modelo=(DefaultComboBoxModel)kruska.getModel();
+        lista = e1;
+        lista_fin = e7;
+        Estrella kkl = kruskal(e1);
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) kruska.getModel();
         modelo.addElement(kkl);
         modelo.addElement(kkl.getNext());
         modelo.addElement(kkl.getNext().getNext());
@@ -230,15 +230,15 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        if(lista.equals(null)){
-            Estrella nueva=new Estrella(tf_nombre.getText(),false);
-            lista=nueva;
+        if (lista.equals(null)) {
+            Estrella nueva = new Estrella(tf_nombre.getText(), false);
+            lista = nueva;
             tf_nombre.setText("");
-            lista_fin=nueva;
-        }else{
-            Estrella nueva=new Estrella(tf_nombre.getText(),false);
+            lista_fin = nueva;
+        } else {
+            Estrella nueva = new Estrella(tf_nombre.getText(), false);
             lista_fin.setNext(nueva);
-            lista_fin=nueva;
+            lista_fin = nueva;
         }
         JOptionPane.showMessageDialog(this, "una nueva Estrella a nacido");
     }//GEN-LAST:event_jButton3MouseClicked
@@ -292,120 +292,133 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> kruska;
     private javax.swing.JTextField tf_nombre;
     // End of variables declaration//GEN-END:variables
-public Estrella kruskal(Estrella grafo){
-    Estrella temp=lista;
-    Estrella temp_2=new Estrella();
-    int size=1;
-    boolean revision=true;
-    while(revision){
-        if(!temp.getNext().equals(null)){
-            System.out.println(temp.getNombre());
-            size++;
-            temp=temp.getNext();
-        }else{
-            revision=false;
+public Estrella kruskal(Estrella grafo) {
+        Estrella temp = lista;
+        Estrella temp_2 = new Estrella();
+        int size = 1;
+        boolean revision = true;
+        while (revision) {
+            if (!temp.getNext().equals(null)) {
+                System.out.println(temp.getNombre());
+                size++;
+                temp = temp.getNext();
+            } else {
+                revision = false;
+            }
         }
-    }
-    temp=lista;
-    Estrella temp_3=new Estrella();
-    for (int i = 0; i < size; i++) {
-        if(grafo.getNombre().equals(temp.getNombre())){
-            temp.setVisitado(true);
-        }
-        if(i==0){
-            temp_2=temp;
-        }else{
-            temp_3.setNext(temp);
-        }
-        temp_3=temp;
-        temp=temp.getNext(); 
-    }
-    temp=temp_2;
-    boolean recorriendo=true;
-    while(recorriendo){
-        Adyacencia opciones=new Adyacencia();
-        Adyacencia opciones_final=new Adyacencia();
+        temp = lista;
+        Estrella temp_3 = new Estrella();
         for (int i = 0; i < size; i++) {
-            if(temp.isVisitado()){
-                boolean agregar=true;
-                while(agregar){
-                    if (opciones.equals(null)) {
-                        opciones=temp.getAdj();
-                        Adyacencia mas_op=opciones;
-                        while(!mas_op.getNext().equals(null)){
-                            mas_op=mas_op.getNext();
-                        }
-                        opciones_final=mas_op;
-                    }else{
-                        opciones_final.setNext(temp.getAdj());
-                        Adyacencia mas_op=opciones_final;
-                        while(!mas_op.getNext().equals(null)){
-                            mas_op=mas_op.getNext();
-                        }
-                        opciones_final=mas_op;
-                    }
-                } 
+            if (grafo.getNombre().equals(temp.getNombre())) {
+                temp.setVisitado(true);
             }
-            temp=temp.getNext();
-        }
-        boolean verificar=true;
-        Adyacencia menor=new Adyacencia();
-        Adyacencia menor_final=new Adyacencia();
-        menor.setPeso(-9);
-        while(!opciones.getNext().equals(null)){
-            if (opciones.getPeso()<menor.getPeso()&&menor.getOrigen().isVisitado()==false){
-                if (menor.getPeso()==-9) {
-                    Adyacencia nueva=opciones;
-                    menor=nueva;
-                    menor_final=nueva;
-                    menor.setNext(null);
-                }else{
-                    Adyacencia nueva=opciones;
-                    menor_final.setNext(nueva);
-                    menor_final=nueva;
-                    menor_final.setNext(null);
-                }
-               
+            if (i == 0) {
+                temp_2 = temp;
+            } else {
+                temp_3.setNext(temp);
             }
-            opciones=opciones.getNext();
+            temp_3 = temp;
+            temp = temp.getNext();
         }
-        while(!menor.equals(null)){
-            menor.getEstrella().setVisitado(true);
-            boolean si=true;
-            while(!temp.equals(null)){
-                if (temp.getNombre().equals(menor.getOrigen().getNombre())) {
-                    if (temp.getAdj().isCamino_kruskal()) {
-                        Adyacencia temp_ady=temp.getAdj();
-                        if (temp_ady.getNext().equals(null)) {
-                            temp.getAdj().setNext(new Adyacencia(menor.getEstrella(),menor.getOrigen(),true,menor.getPeso()));
-                        }else{
-                            while(!temp_ady.getNext().equals(null)){
-                                temp_ady=temp_ady.getNext(); 
+        temp = temp_2;
+        boolean recorriendo = true;
+        while (recorriendo) {
+            Adyacencia opciones = new Adyacencia();
+            Adyacencia opciones_final = new Adyacencia();
+            for (int i = 0; i < size; i++) {
+                if (temp.isVisitado()) {
+                    boolean agregar = true;
+                    while (agregar) {
+                        if (opciones.equals(null)) {
+                            opciones = temp.getAdj();
+                            Adyacencia mas_op = opciones;
+                            while (!mas_op.getNext().equals(null)) {
+                                mas_op = mas_op.getNext();
                             }
-                            temp_ady.setNext(new Adyacencia(menor.getEstrella(),menor.getOrigen(),true,menor.getPeso()));
+                            opciones_final = mas_op;
+                        } else {
+                            opciones_final.setNext(temp.getAdj());
+                            Adyacencia mas_op = opciones_final;
+                            while (!mas_op.getNext().equals(null)) {
+                                mas_op = mas_op.getNext();
+                            }
+                            opciones_final = mas_op;
                         }
-                    }else{
-                        temp.setAdj(new Adyacencia(menor.getEstrella(),menor.getOrigen(),true,menor.getPeso()));
                     }
                 }
-                temp=temp.getNext();
+                temp = temp.getNext();
             }
-            menor=menor.getNext();
-        }
-        Estrella temp_x=temp;
-        boolean ultima_rev=false;
-        for (int i = 0; i < size; i++) {
-            if (temp_x.isVisitado()==false) {
-                ultima_rev=true;
+            boolean verificar = true;
+            Adyacencia menor = new Adyacencia();
+            Adyacencia menor_final = new Adyacencia();
+            menor.setPeso(-9);
+            while (!opciones.getNext().equals(null)) {
+                if (opciones.getPeso() < menor.getPeso() && menor.getOrigen().isVisitado() == false) {
+                    if (menor.getPeso() == -9) {
+                        Adyacencia nueva = opciones;
+                        menor = nueva;
+                        menor_final = nueva;
+                        menor.setNext(null);
+                    } else {
+                        Adyacencia nueva = opciones;
+                        menor_final.setNext(nueva);
+                        menor_final = nueva;
+                        menor_final.setNext(null);
+                    }
+
+                }
+                opciones = opciones.getNext();
+            }
+            while (!menor.equals(null)) {
+                menor.getEstrella().setVisitado(true);
+                boolean si = true;
+                while (!temp.equals(null)) {
+                    if (temp.getNombre().equals(menor.getOrigen().getNombre())) {
+                        if (temp.getAdj().isCamino_kruskal()) {
+                            Adyacencia temp_ady = temp.getAdj();
+                            if (temp_ady.getNext().equals(null)) {
+                                temp.getAdj().setNext(new Adyacencia(menor.getEstrella(), menor.getOrigen(), true, menor.getPeso()));
+                            } else {
+                                while (!temp_ady.getNext().equals(null)) {
+                                    temp_ady = temp_ady.getNext();
+                                }
+                                temp_ady.setNext(new Adyacencia(menor.getEstrella(), menor.getOrigen(), true, menor.getPeso()));
+                            }
+                        } else {
+                            temp.setAdj(new Adyacencia(menor.getEstrella(), menor.getOrigen(), true, menor.getPeso()));
+                        }
+                    }
+                    temp = temp.getNext();
+                }
+                menor = menor.getNext();
+            }
+            Estrella temp_x = temp;
+            boolean ultima_rev = false;
+            for (int i = 0; i < size; i++) {
+                if (temp_x.isVisitado() == false) {
+                    ultima_rev = true;
+                }
+            }
+            if (ultima_rev == false) {
+                recorriendo = false;
             }
         }
-        if (ultima_rev==false) {
-            recorriendo=false;
-        }
+
+        return temp;
     }
-    
-    return temp;
-}
-Estrella lista;
-Estrella lista_fin;
+
+    public static int[] Dijkstra(Constelacion Grafo, int Origen) {
+        final int[] distancia = new int[Grafo.size()];
+        final int[] siguiente = new int[Grafo.size()];
+        final boolean[] visitado = new boolean[Grafo.size()]; 
+
+        for (int i = 0; i < distancia.length; i++) {
+            distancia[i] = Integer.MAX_VALUE;
+        }
+        distancia[Origen] = 0;
+        
+
+    }
+    Estrella lista;
+    Estrella lista_fin;
 }

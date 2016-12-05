@@ -151,7 +151,7 @@ public class Constelacion {
         }
     }
 
-    public int Size() {
+    public int size() {
         int contador = 0;
         Estrella temp = Estrellas;
         while (!temp.equals(null)) {
