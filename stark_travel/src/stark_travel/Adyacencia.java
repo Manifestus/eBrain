@@ -82,10 +82,10 @@ public class Adyacencia {
 
     @Override
     public String toString() {
-        if (next==null) {
-            return  "("+origen.getNombre()+"-"+peso+"->"+estrella.getNombre()+")";
+        if (next.equals(null)) {
+            return  "("+origen+"-"+peso+"->"+estrella+")";
         }else
-        return  "("+origen.getNombre()+"-"+peso+"->"+estrella.getNombre()+"),"+next;
+        return  "("+origen+"-"+peso+"->"+estrella+"),"+next;
     }
 
     

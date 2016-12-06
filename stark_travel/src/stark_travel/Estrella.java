@@ -74,7 +74,7 @@ public class Estrella {
 
     @Override
     public String toString() {
-        return Nombre + "(" + Adj + "),";
+        return Nombre + "(" + Adj + "),"+Next;
     }
     
     
