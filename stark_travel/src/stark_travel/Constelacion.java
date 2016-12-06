@@ -5,8 +5,6 @@
  */
 package stark_travel;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author admin
@@ -16,6 +14,12 @@ public class Constelacion {
     private String Nombre;
     private Estrella Estrellas;
     private Adyacencia adyacencia;
+
+    public Constelacion(String Nombre, Estrella Estrellas, Adyacencia adyacencia) {
+        this.Nombre = Nombre;
+        this.Estrellas = Estrellas;
+        this.adyacencia = adyacencia;
+    }
 
     public Constelacion(String Nombre) {
         this.Nombre = Nombre;
@@ -60,15 +64,14 @@ public class Constelacion {
     public Estrella Next(Constelacion v, int i) {
         Estrella Estrella = v.getEstrellas();
         if (i == 0) {
-            if (Estrella.getNext().equals(null) == false) {
-                return null;
+            if (Estrella == null) {
             } else {
                 return Estrella.getNext();
             }
         } else {
             try {
                 for (int j = 0; j < i + 1; j++) {
-                    if (Estrella.getNext().equals(null)) {
+                    if (Estrella == null) {
                     } else {
                         Estrella = Estrella.getNext();
                     }
@@ -83,15 +86,14 @@ public class Constelacion {
     public Estrella getVertex(Constelacion Vertex, int i) {
         Estrella Estrella = Vertex.getEstrellas();
         if (i == 0) {
-            if (Estrella.getNext().equals(null) == false) {
-                return null;
+            if (Estrella == null) {
             } else {
                 return Estrella.getNext();
             }
         } else {
             try {
                 for (int j = 0; j < i; j++) {
-                    if (Estrella.getNext().equals(null)) {
+                    if (Estrella == null) {
                     } else {
                         Estrella = Estrella.getNext();
                     }
@@ -105,7 +107,7 @@ public class Constelacion {
 
     public void Add(Estrella Inicio, Estrella Final) {
         int contador = 0;
-        while (!Inicio.getNext().equals(null)) {
+        while (Inicio != null) {
             contador++;
             Inicio = Inicio.getNext();
         }
@@ -114,7 +116,7 @@ public class Constelacion {
         } else {
             try {
                 for (int j = 0; j < contador; j++) {
-                    if (Inicio.getNext().equals(null)) {
+                    if (Inicio == null) {
                     } else {
                         Inicio = Inicio.getNext();
                     }
@@ -127,7 +129,7 @@ public class Constelacion {
 
     public void Remove(Estrella Inicio, int pos) {
         int contador = 0;
-        while (!Inicio.getNext().equals(null)) {
+        while (Inicio != null) {
             contador++;
             Inicio = Inicio.getNext();
         }
@@ -136,12 +138,12 @@ public class Constelacion {
         } else {
             try {
                 for (int j = 0; j < pos; j++) {
-                    if (Inicio.getNext().equals(null)) {
+                    if (Inicio == null) {
                     } else {
                         Inicio = Inicio.getNext();
                     }
                 }
-                if (!Inicio.getNext().equals(null)) {
+                if (Inicio != null) {
                     Inicio = Inicio.getNext();
                 } else {
 
@@ -154,13 +156,71 @@ public class Constelacion {
     public int size() {
         int contador = 0;
         Estrella temp = Estrellas;
-        while (!temp.equals(null)) {
-            if (temp.getName_Const().equals(this.Nombre)) {
-                contador++;
-            }
+        while (temp != null) {
+            contador++;
+
             temp = temp.getNext();
         }
         return contador;
+    }
+
+    public Estrella GrupoEstrella(Estrella Lista) {
+
+        Estrella tempContador;
+        Estrella tempLista;
+        Estrella tempFinal = new Estrella();
+        tempContador = Lista;
+        tempLista = Lista;
+
+        int contador = 0;
+
+        while (tempContador != null) {
+            contador++;
+            tempContador = tempContador.getNext();
+        }
+
+        for (int i = 0; i < contador; i++) {
+            if (tempLista != null) {
+                if (tempFinal == null) {
+                    if (tempLista.getName_Const().equals(Nombre)) {
+                        tempFinal = tempLista;
+                    }
+                } else if (tempLista.getName_Const().equals(Nombre)) {
+                    tempFinal.setNext(tempLista);
+                    tempFinal = tempFinal.getNext();
+                }
+                tempLista = tempLista.getNext();
+            }
+        }
+        return tempFinal;
+    }
+
+    public int[] GrupoEstrellaPeso(Estrella Lista) {
+
+        Estrella tempContador;
+        Estrella tempLista;
+        tempContador = Lista;
+        tempLista = Lista;
+
+        int contador = 0;
+
+        while (tempContador != null) {
+            contador++;
+            tempContador = tempContador.getNext();
+        }
+
+        Adyacencia tempAdj = tempLista.getAdj();
+
+        int[] Pesos = new int[contador];
+
+        for (int i = 0; i < contador; i++) {
+            if (tempAdj != null) {
+                Pesos[i] = tempAdj.getPeso();
+                tempAdj = tempAdj.getNext();
+            }            
+        }
+
+        return Pesos;
     }
 
 }

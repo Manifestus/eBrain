@@ -7,6 +7,8 @@ package stark_travel;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.SingleGraph;
 
 /**
  *
@@ -78,7 +80,7 @@ public class Main extends javax.swing.JFrame {
         e1.setNext(e2);
         lista = e1;
         lista_fin = e7;
-        Estrella kkl = kruskal(e1);
+        /*Estrella kkl = kruskal(e1);
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) kruska.getModel();
         modelo.addElement(kkl);
         modelo.addElement(kkl.getNext());
@@ -87,7 +89,18 @@ public class Main extends javax.swing.JFrame {
         modelo.addElement(kkl.getNext().getNext().getNext().getNext());
         modelo.addElement(kkl.getNext().getNext().getNext().getNext().getNext());
         modelo.addElement(kkl.getNext().getNext().getNext().getNext().getNext().getNext());
-        kruska.setModel(modelo);
+        kruska.setModel(modelo);*/
+
+        Constelacion cons = new Constelacion("Jupiter", lista, lista.getAdj());
+        Graph graph = new SingleGraph("Star Travel");
+
+        graphAddNode(graph, e1);
+        graphAddEdge(graph, e1.getAdj());
+        
+
+        graph.display();
+        
+        int[] Dijkstra = Dijkstra(cons, 4);
     }
 
     /**
@@ -408,16 +421,66 @@ public Estrella kruskal(Estrella grafo) {
     }
 
     public static int[] Dijkstra(Constelacion Grafo, int Origen) {
+        
         final int[] distancia = new int[Grafo.size()];
         final int[] siguiente = new int[Grafo.size()];
-        final boolean[] visitado = new boolean[Grafo.size()]; 
+        final boolean[] visitado = new boolean[Grafo.size()];
 
         for (int i = 0; i < distancia.length; i++) {
             distancia[i] = Integer.MAX_VALUE;
         }
         distancia[Origen] = 0;
-        
 
+        for (int i = 0; i < distancia.length; i++) {
+            final int next = verticesMinimos(distancia, visitado);
+            visitado[next] = true;
+
+            final int[] Pesos = Grafo.GrupoEstrellaPeso(Grafo.getEstrellas());
+            for (int j = 0; j < Pesos.length; j++) {
+                final int Vertex = Pesos[j];
+                final int dist = distancia[next] + Grafo.GrupoEstrellaPeso(Grafo.getEstrellas())[Origen];
+                if (distancia[Vertex] > dist) {
+                    distancia[Vertex] = dist;
+                    siguiente[Vertex] = next;
+                }
+            }
+        }
+        return siguiente;
+    }
+
+    private static int verticesMinimos(int[] distancia, boolean[] vistado) {
+        int x = Integer.MAX_VALUE;
+        int y = -1;
+        for (int i = 0; i < distancia.length; i++) {
+            if (!vistado[i] && distancia[i] < x) {
+                y = i;
+                x = distancia[i];
+            }
+        }
+        return y;
+    }
+
+    public Graph graphAddNode(Graph grafo, Estrella List) {
+        Estrella temp = List;
+        while (temp != null) {
+            grafo.addNode(temp.getNombre());
+            temp = temp.getNext();
+        }
+        return grafo;
+    }
+    
+    public Graph graphAddEdge(Graph grafo, Adyacencia Adj){
+        
+        Adyacencia temp = Adj;
+        
+        while(temp != null){
+        
+            grafo.addEdge(temp.getPeso() + "", temp.getOrigen().getNombre(), temp.getEstrella().getNombre());
+            
+            temp = temp.getNext();
+        }
+        
+        return grafo;
     }
     Estrella lista;
     Estrella lista_fin;
