@@ -9,6 +9,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.graph.implementations.MultiGraph;
 
 /**
  *
@@ -94,13 +95,18 @@ public class Main extends javax.swing.JFrame {
         Constelacion cons = new Constelacion("Jupiter", lista, lista.getAdj());
         Graph graph = new SingleGraph("Star Travel");
 
-        graphAddNode(graph, e1);
-        graphAddEdge(graph, e1.getAdj());
-        
+        Estrella temp = lista;
+        graphAddNode(graph, temp);
+        graph.addEdge(temp.getAdj().getPeso() + "", temp.getNombre(), temp.getNext().getNombre());
+        temp = temp.getNext();
+        while (temp != null) {
+            graphAddEdge(graph, temp.getAdj());
+            temp = temp.getNext();
+        }
 
         graph.display();
-        
-        int[] Dijkstra = Dijkstra(cons, 4);
+
+        //int[] Dijkstra = Dijkstra(cons, 4);
     }
 
     /**
@@ -421,7 +427,7 @@ public Estrella kruskal(Estrella grafo) {
     }
 
     public static int[] Dijkstra(Constelacion Grafo, int Origen) {
-        
+
         final int[] distancia = new int[Grafo.size()];
         final int[] siguiente = new int[Grafo.size()];
         final boolean[] visitado = new boolean[Grafo.size()];
@@ -468,18 +474,21 @@ public Estrella kruskal(Estrella grafo) {
         }
         return grafo;
     }
-    
-    public Graph graphAddEdge(Graph grafo, Adyacencia Adj){
-        
+
+    public Graph graphAddEdge(Graph grafo, Adyacencia Adj) {
+
         Adyacencia temp = Adj;
-        
-        while(temp != null){
-        
-            grafo.addEdge(temp.getPeso() + "", temp.getOrigen().getNombre(), temp.getEstrella().getNombre());
-            
+
+        while (temp != null) {
+
+            try {
+                grafo.addEdge(temp.getPeso() + "", temp.getOrigen().getNombre(), temp.getEstrella().getNombre());
+            } catch (Exception e) {
+            }
+
             temp = temp.getNext();
         }
-        
+
         return grafo;
     }
     Estrella lista;
