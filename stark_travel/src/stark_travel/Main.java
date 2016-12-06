@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.graph.implementations.MultiGraph;
+import org.graphstream.algorithm.Dijkstra;
 
 /**
  *
@@ -105,7 +106,6 @@ public class Main extends javax.swing.JFrame {
         }
 
         graph.display();
-
         //int[] Dijkstra = Dijkstra(cons, 4);
     }
 
