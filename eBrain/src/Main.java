@@ -9,6 +9,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        System.out.println("hola");
     }
 
     /**
