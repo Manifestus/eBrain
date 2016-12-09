@@ -26,6 +26,9 @@ public class Perfil {
         this.Observaciones = Observaciones;
     }
 
+    public Perfil() {
+    }
+
     public String getNombre() {
         return Nombre;
     }

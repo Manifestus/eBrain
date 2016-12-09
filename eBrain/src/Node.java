@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.Element;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,13 +18,49 @@ import org.graphstream.graph.Graph;
  *
  * @author admin
  */
-public class Node implements org.graphstream.graph.Node{
+public class Node implements org.graphstream.graph.Node, org.graphstream.graph.Element{
 
     //Nodos
+    String Nombre;
     Node Actual;
     Node Siguiente;
-    
-    
+    Edge [] Adjacencias;
+
+    public Node() {
+    }
+
+    public Node getActual() {
+        return Actual;
+    }
+
+    public void setActual(Node Actual) {
+        this.Actual = Actual;
+    }
+
+    public Node getSiguiente() {
+        return Siguiente;
+    }
+
+    public void setSiguiente(Node Siguiente) {
+        this.Siguiente = Siguiente;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public Edge[] getAdjacencias() {
+        return Adjacencias;
+    }
+
+    public void setAdjacencias(Edge[] Adjacencias) {
+        this.Adjacencias = Adjacencias;
+    }
+
     @Override
     public Graph getGraph() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -363,5 +400,6 @@ public class Node implements org.graphstream.graph.Node{
     public Iterator<Edge> iterator() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+ 
 }

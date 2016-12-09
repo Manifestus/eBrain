@@ -1,5 +1,6 @@
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.algorithm.Dijkstra;
 
 public class Main extends javax.swing.JFrame {
 
@@ -9,7 +10,6 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        System.out.println("hola");
     }
 
     /**

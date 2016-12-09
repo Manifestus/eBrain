@@ -28,6 +28,9 @@ class Edge implements org.graphstream.graph.Edge{
         this.Cola = Cola;
     }
 
+    public Edge() {
+    }
+
     public int getImportancia() {
         return Importancia;
     }
