@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +13,7 @@
  */
 class MapaMental {
     Node Palabra;
-    Edge [] Adyacencias;
+    ArrayList<Edge> Adyacencias;
 
     public MapaMental() {
     }
@@ -23,11 +26,11 @@ class MapaMental {
         this.Palabra = Palabra;
     }
 
-    public Edge[] getAdyacencias() {
+    public ArrayList<Edge> getAdyacencias() {
         return Adyacencias;
     }
 
-    public void setAdyacencias(Edge[] Adyacencias) {
+    public void setAdyacencias(ArrayList<Edge> Adyacencias) {
         this.Adyacencias = Adyacencias;
     }
 

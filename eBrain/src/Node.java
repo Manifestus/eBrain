@@ -24,7 +24,7 @@ public class Node implements org.graphstream.graph.Node, org.graphstream.graph.E
     String Nombre;
     Node Actual;
     Node Siguiente;
-    Edge [] Adjacencias;
+    ArrayList<Edge> Adjacencias;
 
     public Node() {
     }
@@ -53,11 +53,11 @@ public class Node implements org.graphstream.graph.Node, org.graphstream.graph.E
         this.Nombre = Nombre;
     }
 
-    public Edge[] getAdjacencias() {
+    public ArrayList<Edge> getAdjacencias() {
         return Adjacencias;
     }
 
-    public void setAdjacencias(Edge[] Adjacencias) {
+    public void setAdjacencias(ArrayList<Edge> Adjacencias) {
         this.Adjacencias = Adjacencias;
     }
 

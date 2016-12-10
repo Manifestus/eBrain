@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,8 +18,8 @@ public class Perfil {
     String Raza;
     String Observaciones;
     
-    Perfil [] Hijos;
-    MapaMental[] Mapas;
+    ArrayList<Perfil> Hijos = new ArrayList();
+    ArrayList<Perfil> Mapas = new ArrayList();
 
     public Perfil(String Nombre, String Fecha_Nacimiento, String Genero, String Raza, String Observaciones) {
         this.Nombre = Nombre;
@@ -69,8 +72,24 @@ public class Perfil {
         this.Observaciones = Observaciones;
     }
 
+    public ArrayList<Perfil> getHijos() {
+        return Hijos;
+    }
+
+    public void setHijos(ArrayList<Perfil> Hijos) {
+        this.Hijos = Hijos;
+    }
+
+    public ArrayList<Perfil> getMapas() {
+        return Mapas;
+    }
+
+    public void setMapas(ArrayList<Perfil> Mapas) {
+        this.Mapas = Mapas;
+    }
+
     @Override
     public String toString() {
-        return "Perfil{" + '}';
+        return Nombre;
     }
 }
